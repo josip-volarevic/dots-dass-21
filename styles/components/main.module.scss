@@ -1,0 +1,9 @@
+@use '../mixins/animations.module.scss' as *;
+@use '../mixins/breakpoints.module.scss' as *;
+@use '../mixins/common.module.scss' as *;
+
+.main {
+	@include defaultFadeIn;
+	display: flex;
+	flex-direction: column;
+}

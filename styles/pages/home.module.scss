@@ -1,0 +1,118 @@
+@use '../mixins/animations.module.scss' as *;
+@use '../mixins/common.module.scss' as *;
+@use '../mixins/breakpoints.module.scss' as *;
+@use '../variables/theme.module.scss' as *;
+
+.dass-21-form {
+	margin: 1rem auto;
+	@include flexColumn;
+
+	.form-button {
+		margin: 0 auto;
+		min-width: 160px !important;
+		font-weight: bold !important;
+	}
+}
+
+.dass-21-questionnaire {
+	@include defaultFadeIn;
+	@include flexColumn;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 2rem 0;
+
+	@include sm {
+		padding: 1rem;
+	}
+
+	@include md {
+		padding: 1.5rem 2rem;
+	}
+
+	.question {
+		@include flexColumn;
+		text-align: center;
+		align-items: center;
+		padding: 2rem 1rem;
+
+		@include sm {
+			@include flexRow;
+			text-align: left;
+			padding: 1.2rem 1rem;
+		}
+
+		@include md {
+			padding: 1rem;
+		}
+
+		&:nth-child(2n) {
+			background-color: $primary-color;
+		}
+
+		&:nth-child(2n - 1) {
+			background-color: $primary-color-light;
+		}
+	}
+
+	.question-radio-group {
+		@include flexRow;
+		justify-content: flex-end;
+		align-items: center;
+		min-width: 180px;
+
+		@include sm {
+			margin-left: auto;
+		}
+	}
+
+	.answer-option {
+		@include flexRow;
+		align-items: center;
+
+		&:not(:last-child) {
+			margin-right: 1rem;
+		}
+
+		@include sm {
+			&:not(:last-child) {
+				margin-right: 0.5rem;
+			}
+		}
+
+		> span {
+			margin-right: -0.4rem;
+		}
+	}
+}
+
+.answer-example {
+	@include flexRow;
+	align-items: center;
+	color: black !important;
+	padding: 0.4rem 0;
+	border-bottom: $primary-color-dark 2px solid;
+
+	.number {
+		margin-right: -2px;
+		font-size: 24px;
+		font-weight: bold;
+	}
+}
+
+.dialog-paper {
+	@include xs {
+		max-width: unset;
+		position: absolute !important;
+		width: 100% !important;
+		bottom: 0 !important;
+		margin: 2rem 0 0 0 !important;
+		border-bottom-width: 0;
+		border-left-width: 0;
+		border-right-width: 0;
+	}
+}
+
+.dialog-text {
+	white-space: pre-line;
+	color: black !important;
+}

@@ -1,0 +1,29 @@
+@use '../mixins/common.module.scss' as *;
+@use '../variables/theme.module.scss' as *;
+
+.footer {
+	background-color: $secondary-color;
+	color: $primary-color-light;
+
+	svg {
+		color: $primary-color-dark;
+		fill: $primary-color-dark;
+	}
+
+	margin-top: 1rem;
+	padding: 2rem 1rem;
+
+	.footer-copyright {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		// font-style: italic;
+	}
+
+	.company-logo {
+		margin-right: 1rem;
+		opacity: 0.6;
+		height: 24px;
+		width: auto;
+	}
+}
