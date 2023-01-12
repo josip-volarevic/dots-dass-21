@@ -6,7 +6,6 @@ import {
 	Button,
 	Container,
 	Dialog,
-	DialogActions,
 	DialogContent,
 	DialogTitle,
 	Hidden,
@@ -24,10 +23,9 @@ import { Formik, Form, Field, FieldAttributes } from 'formik'
 import Navigation from 'components/layout/Navigation'
 import Footer from 'components/layout/Footer'
 import Main from 'components/layout/Main'
-import { getLevelsString, isPersonInBadState } from 'constants/levels'
+import { getLevelsString } from 'constants/levels'
 import { TransitionProps } from '@mui/material/transitions'
 import CloseIcon from '@mui/icons-material/Close'
-import Confetti from 'react-dom-confetti'
 import useToggle from 'hooks/useToggle'
 
 const Transition = React.forwardRef(function Transition(
@@ -43,13 +41,7 @@ const Transition = React.forwardRef(function Transition(
 
 const Home: NextPage = () => {
 	const [message, setMessage] = useState('')
-	const [needsCheeringUp, setNeedsCheeringUp] = useState(false)
-	const [active, setActive] = useState(false)
 	const [open, toggleOpen] = useToggle()
-
-	const fireConfetti = () => {
-		setActive(true)
-	}
 
 	const getResults = (values: FormValues) => {
 		const {
@@ -105,7 +97,6 @@ const Home: NextPage = () => {
 		const stressRate = +question1 + +question6 + +question8 + +question11 + +question12 + +question14 + +question18
 
 		setMessage(getLevelsString(depressionRate, anxietyRate, stressRate))
-		setNeedsCheeringUp(isPersonInBadState(depressionRate, anxietyRate, stressRate))
 		toggleOpen()
 	}
 
@@ -236,32 +227,7 @@ const Home: NextPage = () => {
 						{message}
 					</Typography>
 				</DialogContent>
-
-				{needsCheeringUp && !active && (
-					<DialogActions>
-						<Button color='secondary' variant='contained' onClick={fireConfetti}>
-							Razveseli me
-						</Button>
-					</DialogActions>
-				)}
 			</Dialog>
-			<Box zIndex={9999} position='absolute'>
-				<Confetti
-					active={active}
-					config={{
-						angle: 45,
-						spread: 90,
-						startVelocity: 100,
-						elementCount: 1000,
-						dragFriction: 0.1,
-						duration: 10000,
-						stagger: 1,
-						width: '10px',
-						height: '10px',
-						colors: ['#a864fd', '#29cdff', '#78ff44', '#ff718d', '#fdff6a'],
-					}}
-				/>
-			</Box>
 		</Box>
 	)
 }
