@@ -23,7 +23,7 @@ import { Formik, Form, Field, FieldAttributes } from 'formik'
 import Navigation from 'components/layout/Navigation'
 import Footer from 'components/layout/Footer'
 import Main from 'components/layout/Main'
-import { getAnxietyLevel, getDepressionLevel, getLevelsString, getStressLevel, Level } from 'constants/levels'
+import { getAnxietyLevel, getDepressionLevel, getStressLevel, Level } from 'constants/levels'
 import { TransitionProps } from '@mui/material/transitions'
 import CloseIcon from '@mui/icons-material/Close'
 import useToggle from 'hooks/useToggle'
@@ -114,11 +114,13 @@ const Home: NextPage = () => {
 						Dass 21
 					</Typography>
 					<Typography>
-						Pred Vama je upitnik koji obuhvaća ispitivanje nekih simptoma depresije, anksioznosti i stresa koji mogu, u
-						različitoj mjeri, biti prisutni u svakodnevnom životu. Ispunjavanje upitnika može Vam pomoći da jasnije
-						identificirate svoje eventualne teškoće. Po ispunjavanju upitnika dobit ćete interpretaciju Vaših rezultata
-						s općenitim opisom teškoća s kojima se suočavaju osobe s različitim stupnjevima izraženosti depresivnosti,
-						anksioznosti i stresa.
+						Pred Vama je upitnik koji obuhvaća ispitivanje nekih simptoma{' '}
+						<span className='text--important'>depresije</span>,&nbsp;
+						<span className='text--important'>anksioznosti</span> i <span className='text--important'>stresa</span> koji
+						mogu, u različitoj mjeri, biti prisutni u svakodnevnom životu. Ispunjavanje upitnika može Vam pomoći da
+						jasnije identificirate svoje eventualne teškoće. Po ispunjavanju upitnika dobit ćete interpretaciju Vaših
+						rezultata s općenitim opisom teškoća s kojima se suočavaju osobe s različitim stupnjevima izraženosti
+						depresivnosti, anksioznosti i stresa.
 						<br />
 						<br />
 						<strong>NAPOMENA:</strong> Upitnik nije namijenjen dijagnosticiranju psihičkih poremećaja i ne upućuje na
@@ -264,10 +266,11 @@ const Message: React.FC<MessageProps> = ({ depressionRate, anxietyRate, stressRa
 	if ((dLevel === Level.Five || dLevel === Level.Four) && type === 'depression') {
 		return (
 			<Typography variant='body1' className='dialog-text'>
-				Odgovori koji upućuju na to da doživljavate značajnu, odnosno ekstremno ozbiljnu razinu depresivnosti ukazuju na
-				veliku vjerojatnost da Vas uočeni simptomi ometaju u svakodnevnom funkcioniranju. Preporučujemo Vam da potražite
-				stručnu psihološku pomoć.\n\nNeke dostupne oblike podrške u lokalnoj zajednici možete pronaći i na našoj web
-				stranici u rubrici Izvori podrške -&nbsp;
+				Odgovori koji upućuju na to da doživljavate značajnu, odnosno&nbsp;
+				<span className='text--important'>ekstremno ozbiljnu</span> razinu&nbsp;
+				<span className='text--important'>depresivnosti</span> ukazuju na veliku vjerojatnost da Vas uočeni simptomi
+				ometaju u svakodnevnom funkcioniranju. Preporučujemo Vam da potražite stručnu psihološku pomoć.\n\nNeke dostupne
+				oblike podrške u lokalnoj zajednici možete pronaći i na našoj web stranici u rubrici Izvori podrške -&nbsp;
 				<a href='https://dots.mentor-split.hr/izvori-podrske-i-mogucnosti' target='_blank' rel='noreferrer'>
 					link
 				</a>
@@ -278,11 +281,11 @@ const Message: React.FC<MessageProps> = ({ depressionRate, anxietyRate, stressRa
 	} else if (dLevel === Level.Three && type === 'depression') {
 		return (
 			<Typography variant='body1' className='dialog-text'>
-				Odgovori koji upućuju na to da doživljavate umjerenu razinu depresivnosti ukazuju na vjerojatnost relativno
-				uspješnog suočavanja s uočenim simptomima. Ako se teškoće koje doživljavate nastave još neko vrijeme te ako
-				procijenite da Vas ometaju u svakodnevnom funkcioniranju, preporučujemo Vam da potražite stručnu psihološku
-				pomoć.\n\nNeke dostupne oblike podrške u lokalnoj zajednici možete pronaći i na našoj web stranici u rubrici
-				Izvori podrške -&nbsp;
+				Odgovori koji upućuju na to da doživljavate <span className='text--important'>umjerenu razinu</span>&nbsp;
+				<span className='text--important'>depresivnosti</span> ukazuju na vjerojatnost relativno uspješnog suočavanja s
+				uočenim simptomima. Ako se teškoće koje doživljavate nastave još neko vrijeme te ako procijenite da Vas ometaju
+				u svakodnevnom funkcioniranju, preporučujemo Vam da potražite stručnu psihološku pomoć.\n\nNeke dostupne oblike
+				podrške u lokalnoj zajednici možete pronaći i na našoj web stranici u rubrici Izvori podrške -&nbsp;
 				<a href='https://dots.mentor-split.hr/izvori-podrske-i-mogucnosti' target='_blank' rel='noreferrer'>
 					link
 				</a>
@@ -293,20 +296,22 @@ const Message: React.FC<MessageProps> = ({ depressionRate, anxietyRate, stressRa
 	} else if ((dLevel === Level.Two || dLevel === Level.One) && type === 'depression') {
 		return (
 			<Typography variant='body1' className='dialog-text'>
-				Odgovori koji upućuju na to da doživljavate normalnu/blagu razinu depresivnosti ukazuju na uspješno
-				prevladavanje izazovnih životnih situacija i okolnosti te se ne očekuje da izazivaju značajnije teškoće u Vašem
-				funkcioniranju u svakodnevnom životu.\n\nIpak, upućujemo Vas na sadržaje na ovoj web stranici koji Vam mogu dati
-				dodatne informacije i naučiti Vas različite konstruktivne strategije suočavanja sa stresom kako biste bili
-				uspješniji u prevladavanju trenutnih teškoća i održavanju ili unaprjeđenju vlastitog mentalnog zdravlja.
+				Odgovori koji upućuju na to da doživljavate <span className='text--important'>normalnu/blagu razinu</span>&nbsp;
+				<span className='text--important'>depresivnosti</span> ukazuju na uspješno prevladavanje izazovnih životnih
+				situacija i okolnosti te se ne očekuje da izazivaju značajnije teškoće u Vašem funkcioniranju u svakodnevnom
+				životu.\n\nIpak, upućujemo Vas na sadržaje na ovoj web stranici koji Vam mogu dati dodatne informacije i naučiti
+				Vas različite konstruktivne strategije suočavanja sa stresom kako biste bili uspješniji u prevladavanju
+				trenutnih teškoća i održavanju ili unaprjeđenju vlastitog mentalnog zdravlja.
 			</Typography>
 		)
 	} else if ((aLevel === Level.Five || aLevel === Level.Four) && type === 'anxiety') {
 		return (
 			<Typography variant='body1' className='dialog-text'>
-				Odgovori koji upućuju na to da doživljavate značajnu, odnosno ekstremno ozbiljnu razinu anksioznosti ukazuju na
-				veliku vjerojatnost da Vas uočeni simptomi ometaju u svakodnevnom funkcioniranju. Preporučujemo Vam da potražite
-				stručnu psihološku pomoć.\n\nNeke dostupne oblike podrške u lokalnoj zajednici možete pronaći i na našoj web
-				stranici u rubrici Izvori podrške -&nbsp;
+				Odgovori koji upućuju na to da doživljavate značajnu, odnosno&nbsp;
+				<span className='text--important'>ekstremno ozbiljnu</span> razinu&nbsp;
+				<span className='text--important'>anksioznosti</span> ukazuju na veliku vjerojatnost da Vas uočeni simptomi
+				ometaju u svakodnevnom funkcioniranju. Preporučujemo Vam da potražite stručnu psihološku pomoć.\n\nNeke dostupne
+				oblike podrške u lokalnoj zajednici možete pronaći i na našoj web stranici u rubrici Izvori podrške -&nbsp;
 				<a href='https://dots.mentor-split.hr/izvori-podrske-i-mogucnosti' target='_blank' rel='noreferrer'>
 					link
 				</a>
@@ -317,11 +322,11 @@ const Message: React.FC<MessageProps> = ({ depressionRate, anxietyRate, stressRa
 	} else if (aLevel === Level.Three && type === 'anxiety') {
 		return (
 			<Typography variant='body1' className='dialog-text'>
-				Odgovori koji upućuju na to da doživljavate umjerenu razinu anksioznosti ukazuju na vjerojatnost relativno
-				uspješnog suočavanja s uočenim simptomima. Ako se teškoće koje doživljavate nastave još neko vrijeme te ako
-				procijenite da Vas ometaju u svakodnevnom funkcioniranju, preporučujemo Vam da potražite stručnu psihološku
-				pomoć.\n\nNeke dostupne oblike podrške u lokalnoj zajednici možete pronaći i na našoj web stranici u rubrici
-				Izvori podrške -&nbsp;
+				Odgovori koji upućuju na to da doživljavate <span className='text--important'>umjerenu razinu</span>&nbsp;
+				anksioznosti ukazuju na vjerojatnost relativno uspješnog suočavanja s uočenim simptomima. Ako se teškoće koje
+				doživljavate nastave još neko vrijeme te ako procijenite da Vas ometaju u svakodnevnom funkcioniranju,
+				preporučujemo Vam da potražite stručnu psihološku pomoć.\n\nNeke dostupne oblike podrške u lokalnoj zajednici
+				možete pronaći i na našoj web stranici u rubrici Izvori podrške -&nbsp;
 				<a href='https://dots.mentor-split.hr/izvori-podrske-i-mogucnosti' target='_blank' rel='noreferrer'>
 					link
 				</a>
@@ -332,20 +337,22 @@ const Message: React.FC<MessageProps> = ({ depressionRate, anxietyRate, stressRa
 	} else if ((aLevel === Level.Two || aLevel === Level.One) && type === 'anxiety') {
 		return (
 			<Typography variant='body1' className='dialog-text'>
-				Odgovori koji upućuju na to da doživljavate normalnu/blagu razinu anksioznosti ukazuju na uspješno prevladavanje
-				izazovnih životnih situacija i okolnosti te se ne očekuje da izazivaju značajnije teškoće u Vašem funkcioniranju
-				u svakodnevnom životu.\n\nIpak, upućujemo Vas na sadržaje na ovoj web stranici koji Vam mogu dati dodatne
-				informacije i naučiti Vas različite konstruktivne strategije suočavanja sa stresom kako biste bili uspješniji u
-				prevladavanju trenutnih teškoća i održavanju ili unaprjeđenju vlastitog mentalnog zdravlja.
+				Odgovori koji upućuju na to da doživljavate <span className='text--important'>normalnu/blagu razinu</span>&nbsp;
+				anksioznosti ukazuju na uspješno prevladavanje izazovnih životnih situacija i okolnosti te se ne očekuje da
+				izazivaju značajnije teškoće u Vašem funkcioniranju u svakodnevnom životu.\n\nIpak, upućujemo Vas na sadržaje na
+				ovoj web stranici koji Vam mogu dati dodatne informacije i naučiti Vas različite konstruktivne strategije
+				suočavanja sa stresom kako biste bili uspješniji u prevladavanju trenutnih teškoća i održavanju ili unaprjeđenju
+				vlastitog mentalnog zdravlja.
 			</Typography>
 		)
 	} else if ((sLevel === Level.Five || sLevel === Level.Four) && type === 'stress') {
 		return (
 			<Typography variant='body1' className='dialog-text'>
-				Odgovori koji upućuju na to da doživljavate značajnu, odnosno ekstremno ozbiljnu razinu stresa ukazuju na veliku
-				vjerojatnost da Vas uočeni simptomi ometaju u svakodnevnom funkcioniranju. Preporučujemo Vam da potražite
-				stručnu psihološku pomoć.\n\nNeke dostupne oblike podrške u lokalnoj zajednici možete pronaći i na našoj web
-				stranici u rubrici Izvori podrške -&nbsp;
+				Odgovori koji upućuju na to da doživljavate značajnu, odnosno&nbsp;
+				<span className='text--important'>ekstremno ozbiljnu</span> razinu&nbsp;
+				<span className='text--important'>stresa</span> ukazuju na veliku vjerojatnost da Vas uočeni simptomi ometaju u
+				svakodnevnom funkcioniranju. Preporučujemo Vam da potražite stručnu psihološku pomoć.\n\nNeke dostupne oblike
+				podrške u lokalnoj zajednici možete pronaći i na našoj web stranici u rubrici Izvori podrške -&nbsp;
 				<a href='https://dots.mentor-split.hr/izvori-podrske-i-mogucnosti' target='_blank' rel='noreferrer'>
 					link
 				</a>
@@ -356,10 +363,11 @@ const Message: React.FC<MessageProps> = ({ depressionRate, anxietyRate, stressRa
 	} else if (sLevel === Level.Three && type === 'stress') {
 		return (
 			<Typography variant='body1' className='dialog-text'>
-				Odgovori koji upućuju na to da doživljavate umjerenu razinu stresa ukazuju na vjerojatnost relativno uspješnog
-				suočavanja s uočenim simptomima. Ako se teškoće koje doživljavate nastave još neko vrijeme te ako procijenite da
-				Vas ometaju u svakodnevnom funkcioniranju, preporučujemo Vam da potražite stručnu psihološku pomoć.\n\nNeke
-				dostupne oblike podrške u lokalnoj zajednici možete pronaći i na našoj web stranici u rubrici Izvori podrške -
+				Odgovori koji upućuju na to da doživljavate <span className='text--important'>umjerenu razinu</span> stresa
+				ukazuju na vjerojatnost relativno uspješnog suočavanja s uočenim simptomima. Ako se teškoće koje doživljavate
+				nastave još neko vrijeme te ako procijenite da Vas ometaju u svakodnevnom funkcioniranju, preporučujemo Vam da
+				potražite stručnu psihološku pomoć.\n\nNeke dostupne oblike podrške u lokalnoj zajednici možete pronaći i na
+				našoj web stranici u rubrici Izvori podrške -
 				<a href='https://dots.mentor-split.hr/izvori-podrske-i-mogucnosti' target='_blank' rel='noreferrer'>
 					link
 				</a>
@@ -370,11 +378,13 @@ const Message: React.FC<MessageProps> = ({ depressionRate, anxietyRate, stressRa
 	} else if ((sLevel === Level.Two || sLevel === Level.One) && type === 'stress') {
 		return (
 			<Typography variant='body1' className='dialog-text'>
-				Odgovori koji upućuju na to da doživljavate normalnu/blagu razinu stresa ukazuju na uspješno prevladavanje
-				izazovnih životnih situacija i okolnosti te se ne očekuje da izazivaju značajnije teškoće u Vašem funkcioniranju
-				u svakodnevnom životu.\n\nIpak, upućujemo Vas na sadržaje na ovoj web stranici koji Vam mogu dati dodatne
-				informacije i naučiti Vas različite konstruktivne strategije suočavanja sa stresom kako biste bili uspješniji u
-				prevladavanju trenutnih teškoća i održavanju ili unaprjeđenju vlastitog mentalnog zdravlja.
+				Odgovori koji upućuju na to da doživljavate&nbsp;
+				<span className='text--important'>normalnu/blagu razinu</span>
+				&nbsp; <span className='text--important'>stresa</span> ukazuju na uspješno prevladavanje izazovnih životnih
+				situacija i okolnosti te se ne očekuje da izazivaju značajnije teškoće u Vašem funkcioniranju u svakodnevnom
+				životu.\n\nIpak, upućujemo Vas na sadržaje na ovoj web stranici koji Vam mogu dati dodatne informacije i naučiti
+				Vas različite konstruktivne strategije suočavanja sa stresom kako biste bili uspješniji u prevladavanju
+				trenutnih teškoća i održavanju ili unaprjeđenju vlastitog mentalnog zdravlja.
 			</Typography>
 		)
 	} else return null
